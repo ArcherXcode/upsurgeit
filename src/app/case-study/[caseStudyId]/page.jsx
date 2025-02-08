@@ -1,3 +1,4 @@
+'use client'
 import Cta from "../../ui/Cta";
 import Div from "../../ui/Div";
 import PageHeading from "../../ui/PageHeading";
@@ -6,40 +7,7 @@ import Spacing from "../../ui/Spacing";
 import Image from "next/image";
 import imgUrl from '../../../../public/images/case_study_img_1.jpeg'
 
-// Mock case study details data
-const caseStudyDetails = [
-  {
-    id: '1',
-    title: 'Importance of storytelling and influencer marketing in social media marketing',
-    subtitle: 'Marketing',
-    imageSrc: '/images/case_study_img_1.jpeg',
-    overview: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium voltire doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit.Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Ipsum quia dolor sit amet, consectetur',
-    // Add more details as needed
-  },
-  // Add more case studies
-];
-
-export function generateStaticParams() {
-  return caseStudyDetails.map((detail) => ({
-    caseStudyId: detail.id.toString(),
-  }));
-}
-
-export default function CaseStudyDetailsPage({ params }) {
-  // Find the specific case study detail based on the ID
-  const detail = caseStudyDetails.find(
-    (d) => d.id === params.caseStudyId
-  );
-
-  // If no detail is found, return a 404-like page
-  if (!detail) {
-    return (
-      <Div className="container">
-        <h1>Case Study Detail Not Found</h1>
-      </Div>
-    );
-  }
-
+export default function CaseStudyDetailsPage() {
   return (
     <>
       <PageHeading
@@ -50,25 +18,33 @@ export default function CaseStudyDetailsPage({ params }) {
       <Spacing lg="145" md="80" />
       <Div className="container">
         <SectionHeading
-          title={detail.title}
-          subtitle={detail.subtitle}
+          title="Importance of storytelling and influencer marketing in social media marketing"
+          subtitle="Marketing"
           variant="cs-style1 text-center"
         />
         <Spacing lg="90" md="45" />
         <Image
-          src={detail.imageSrc}
+          src={imgUrl}
           alt="Thumb"
           className="w-100 cs-radius_15"
           placeholder="blur"
-          blurDataURL={detail.imageSrc}
-          width={1000}
-          height={600}
         />
         <Spacing lg="140" md="80" />
         <h2 className="cs-font_38 text-center">Case Study Overview</h2>
         <Spacing lg="60" md="45" />
         <p className="cs-m0">
-          {detail.overview}
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+          accusantium voltire doloremque laudantium, totam rem aperiam, eaque
+          ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+          dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+          aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos
+          qui ratione voluptatem sequi nesciunt. Ipsum quia dolor sit amet,
+          consectetur, adipisci velit, sed quia non numquam eius modi tempora
+          incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut
+          enim ad minima veniam, quis nostrum exercitationem ullam corporis
+          suscipit.Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
+          odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
+          voluptatem sequi nesciunt. Ipsum quia dolor sit amet, consectetur
         </p>
         <Spacing lg="65" md="45" />
         <Div className="row">
